@@ -11,8 +11,8 @@ export default function manifest(): MetadataRoute.Manifest {
     background_color: "#0f172a",
     theme_color: "#0f172a",
     orientation: "portrait",
-    scope: "/", // ✅ یہ شامل کریں
-    lang: "en", // ✅ یہ شامل کریں
+    scope: "/",           // ✅ شامل کریں
+    lang: "en",           // ✅ شامل کریں
     icons: [
       {
         src: "/icon-192.png",
@@ -44,7 +44,5 @@ export default function manifest(): MetadataRoute.Manifest {
       },
     ],
     categories: ["technology", "education", "utilities"],
-    // screenshots کو عارضی طور پر ہٹا دیں (اگر تصاویر نہیں ہیں)
-    // screenshots: [...],
   };
 }
