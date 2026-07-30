@@ -3,16 +3,12 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
+    // ============================================================
+    // ✅ Required (لازمی) - 4 فیلڈز
+    // ============================================================
     name: "FixMend - Repair Your World. Save the Planet.",
     short_name: "FixMend",
-    description: "Free repair guides, cheap spare parts, and AI-powered diagnostics for your gadgets.",
     start_url: "/",
-    display: "standalone",
-    background_color: "#0f172a",
-    theme_color: "#0f172a",
-    orientation: "portrait",
-    scope: "/",           // ✅ شامل کریں
-    lang: "en",           // ✅ شامل کریں
     icons: [
       {
         src: "/icon-192.png",
@@ -27,6 +23,62 @@ export default function manifest(): MetadataRoute.Manifest {
         purpose: "maskable",
       },
     ],
+
+    // ============================================================
+    // ⭐ Recommended (تجویز کردہ) - 7 فیلڈز
+    // ============================================================
+    id: "FixMend",
+    description: "Free repair guides, cheap spare parts, and AI-powered diagnostics for your gadgets.",
+    orientation: "portrait",
+    display: "standalone",
+    theme_color: "#0f172a",
+    background_color: "#0f172a",
+    screenshots: [
+      {
+        src: "/screenshot-1.png",
+        sizes: "1280x720",
+        type: "image/png",
+        form_factor: "wide",
+        label: "FixMend Homepage - Search and find repair guides",
+      },
+      {
+        src: "/screenshot-2.png",
+        sizes: "1280x720",
+        type: "image/png",
+        form_factor: "wide",
+        label: "Device Repair Guides - Step-by-step instructions",
+      },
+      {
+        src: "/screenshot-3.png",
+        sizes: "1280x720",
+        type: "image/png",
+        form_factor: "wide",
+        label: "Video Tutorials - 5,000+ repair videos",
+      },
+      {
+        src: "/screenshot-4.png",
+        sizes: "1280x720",
+        type: "image/png",
+        form_factor: "wide",
+        label: "Dashboard - Track your repair progress",
+      },
+      {
+        src: "/screenshot-5.png",
+        sizes: "1280x720",
+        type: "image/png",
+        form_factor: "wide",
+        label: "Device Details - Specs and repair options",
+      },
+    ],
+
+    // ============================================================
+    // 📂 Optional (اختیاری) - مکمل
+    // ============================================================
+    lang: "en",
+    scope: "/",
+    dir: "ltr",
+    categories: ["technology", "education", "utilities"],
+    display_override: ["window-controls-overlay", "minimal-ui"],
     shortcuts: [
       {
         name: "Search Devices",
@@ -42,7 +94,47 @@ export default function manifest(): MetadataRoute.Manifest {
         url: "/videos",
         icons: [{ src: "/icon-192.png", sizes: "192x192" }],
       },
+      {
+        name: "Unlock Phone",
+        short_name: "Unlock",
+        description: "Unlock your device",
+        url: "/unlock",
+        icons: [{ src: "/icon-192.png", sizes: "192x192" }],
+      },
+      {
+        name: "My Dashboard",
+        short_name: "Dashboard",
+        description: "View your repair progress",
+        url: "/dashboard",
+        icons: [{ src: "/icon-192.png", sizes: "192x192" }],
+      },
     ],
-    categories: ["technology", "education", "utilities"],
+    share_target: {
+      action: "/share-target",
+      method: "GET",
+      params: {
+        title: "title",
+        text: "text",
+        url: "url",
+      },
+    },
+    launch_handler: {
+      client_mode: "auto",
+    },
+    prefer_related_applications: false,
+    related_applications: [
+      {
+        platform: "play",
+        url: "https://play.google.com/store/apps/details?id=com.fixmend.app",
+      },
+    ],
+    iarc_rating_id: "",
+    widgets: [],
+    note_taking: {
+      new_note_url: "/notes/new",
+    },
+    scope_extensions: [],
+    protocol_handlers: [],
+    file_handlers: [],
   };
 }
