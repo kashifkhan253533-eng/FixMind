@@ -11,18 +11,20 @@ export default function manifest(): MetadataRoute.Manifest {
     background_color: "#0f172a",
     theme_color: "#0f172a",
     orientation: "portrait",
+    scope: "/", // ✅ یہ شامل کریں
+    lang: "en", // ✅ یہ شامل کریں
     icons: [
       {
         src: "/icon-192.png",
         sizes: "192x192",
         type: "image/png",
-        purpose: "maskable", // ✅ درست Type
+        purpose: "maskable",
       },
       {
         src: "/icon-512.png",
         sizes: "512x512",
         type: "image/png",
-        purpose: "maskable", // ✅ درست Type
+        purpose: "maskable",
       },
     ],
     shortcuts: [
@@ -42,12 +44,7 @@ export default function manifest(): MetadataRoute.Manifest {
       },
     ],
     categories: ["technology", "education", "utilities"],
-    screenshots: [
-      {
-        src: "/screenshot-1.png",
-        sizes: "1280x720",
-        type: "image/png",
-      },
-    ],
+    // screenshots کو عارضی طور پر ہٹا دیں (اگر تصاویر نہیں ہیں)
+    // screenshots: [...],
   };
 }
