@@ -1,6 +1,7 @@
 // app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script"; // ✅ Default import (درست)
 import "./globals.css";
 
 // ============================================================
@@ -11,7 +12,7 @@ import Footer from "@/components/layout/Footer";
 import { AuthProvider } from "@/context/AuthContext";
 
 // ============================================================
-// ✅ نئے UI کمپوننٹس (جو ہم نے بنائے ہیں)
+// ✅ UI کمپوننٹس
 // ============================================================
 import ChatBot from "@/components/ui/ChatBot";
 import ThemeToggle from "@/components/ui/ThemeToggle";
@@ -31,7 +32,7 @@ const geistMono = Geist_Mono({
 });
 
 // ============================================================
-// ✅ SEO Metadata (Google کے لیے بہتر)
+// ✅ SEO Metadata
 // ============================================================
 export const metadata: Metadata = {
   title: "FixMend - Repair Your World. Save the Planet.",
@@ -71,7 +72,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code", // 🆕 Google Search Console کے لیے
+    google: "your-google-verification-code",
   },
 };
 
@@ -88,19 +89,30 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-950 text-white min-h-screen flex flex-col`}
       >
+        {/* ✅ Service Worker Registration (PWA) */}
+        <Script id="register-sw" strategy="afterInteractive">
+          {`
+            if ('serviceWorker' in navigator) {
+              navigator.serviceWorker.register('/sw.js')
+                .then(() => console.log('✅ Service Worker registered'))
+                .catch((err) => console.log('❌ Service Worker registration failed:', err));
+            }
+          `}
+        </Script>
+
         {/* ✅ AuthProvider - پوری ایپ کو wrap کرتا ہے */}
         <AuthProvider>
-          {/* ✅ Navbar - ہر صفحے پر اوپر */}
+          {/* ✅ Navbar */}
           <Navbar />
 
-          {/* ✅ Theme Toggle - ڈارک/لائٹ موڈ کا بٹن */}
+          {/* ✅ Theme Toggle */}
           <div className="fixed top-20 right-4 z-40">
             <ThemeToggle />
           </div>
 
           {/* ✅ Main Content */}
           <main className="flex-1 pt-16">
-            {/* ✅ Breadcrumbs - راستہ دکھانے والا نیویگیشن */}
+            {/* ✅ Breadcrumbs */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <Breadcrumbs />
             </div>
@@ -108,22 +120,22 @@ export default function RootLayout({
             {/* ✅ Page Content */}
             {children}
 
-            {/* ✅ Newsletter - ہر صفحے کے نیچے (اختیاری) */}
+            {/* ✅ Newsletter */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
               <Newsletter />
             </div>
           </main>
 
-          {/* ✅ Footer - ہر صفحے پر نیچے */}
+          {/* ✅ Footer */}
           <Footer />
 
-          {/* ✅ Back to Top - اسکرول کرنے پر ظاہر ہوگا */}
+          {/* ✅ Back to Top */}
           <BackToTop />
 
-          {/* ✅ Cookie Banner - صارف کی رضایت کے لیے */}
+          {/* ✅ Cookie Banner */}
           <CookieBanner />
 
-          {/* ✅ AI ChatBot - ہر صفحے پر موجود ہوگا */}
+          {/* ✅ AI ChatBot */}
           <ChatBot />
         </AuthProvider>
       </body>
