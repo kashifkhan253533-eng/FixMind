@@ -4,7 +4,7 @@ import { MetadataRoute } from "next";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     // ============================================================
-    // ✅ Required (لازمی) - 4 فیلڈز
+    // ✅ Required (لازمی)
     // ============================================================
     name: "FixMend - Repair Your World. Save the Planet.",
     short_name: "FixMend",
@@ -25,7 +25,7 @@ export default function manifest(): MetadataRoute.Manifest {
     ],
 
     // ============================================================
-    // ⭐ Recommended (تجویز کردہ) - 7 فیلڈز
+    // ⭐ Recommended (تجویز کردہ)
     // ============================================================
     id: "FixMend",
     description: "Free repair guides, cheap spare parts, and AI-powered diagnostics for your gadgets.",
@@ -72,7 +72,7 @@ export default function manifest(): MetadataRoute.Manifest {
     ],
 
     // ============================================================
-    // 📂 Optional (اختیاری) - مکمل
+    // 📂 Optional (اختیاری) – صرف وہی جو Next.js سپورٹ کرتا ہے
     // ============================================================
     lang: "en",
     scope: "/",
@@ -128,13 +128,5 @@ export default function manifest(): MetadataRoute.Manifest {
         url: "https://play.google.com/store/apps/details?id=com.fixmend.app",
       },
     ],
-    iarc_rating_id: "",
-    widgets: [],
-    note_taking: {
-      new_note_url: "/notes/new",
-    },
-    scope_extensions: [],
-    protocol_handlers: [],
-    file_handlers: [],
   };
 }
