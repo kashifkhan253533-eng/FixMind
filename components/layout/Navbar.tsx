@@ -26,22 +26,22 @@ export default function Navbar() {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
-  // ✅ صرف کلائنٹ پر mounted true ہوگا (ہائیڈریشن فکس کے لیے)
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
   const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "Devices", href: "/devices" },
-  { name: "Videos", href: "/videos" },
-   { name: "Unlock", href: "/unlock" }, // 🆕 اب یہ درست صفحہ پر جائے گا
-  { name: "About", href: "/about" },
-  { name: "Blog", href: "/blog" },
-  { name: "Pricing", href: "/pricing" },
-  { name: "Download", href: "/download" },
-];
+    { name: "Home", href: "/" },
+    { name: "Devices", href: "/devices" },
+    { name: "Videos", href: "/videos" },
+    { name: "Unlock", href: "/unlock" },
+    { name: "About", href: "/about" },
+    { name: "Blog", href: "/blog" },
+    { name: "Pricing", href: "/pricing" },
+    { name: "Download", href: "/download" },
+  ];
+
   const handleLogout = () => {
     logout();
     setIsProfileOpen(false);
@@ -54,6 +54,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
 
+          {/* لوگو */}
           <Link href="/" className="flex items-center gap-2 group shrink-0">
             <Wrench className="w-7 h-7 text-emerald-400 group-hover:rotate-12 transition-transform duration-300" />
             <span className="text-xl font-bold text-white">
@@ -61,6 +62,7 @@ export default function Navbar() {
             </span>
           </Link>
 
+          {/* ڈیسک ٹاپ مینو */}
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
@@ -169,6 +171,7 @@ export default function Navbar() {
             )}
           </div>
 
+          {/* موبائل مینو بٹن */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none transition-all"
@@ -179,8 +182,12 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* ✅ موبائل مینو ڈراپ ڈاؤن – اب پوری سکرین اور اسکرول ایبل */}
       {isOpen && (
-        <div className="md:hidden bg-slate-900/95 backdrop-blur-md border-b border-slate-800 py-4 px-4 space-y-2">
+        <div
+          className="md:hidden bg-slate-900/95 backdrop-blur-md border-b border-slate-800 py-4 px-4 space-y-2 overflow-y-auto max-h-[calc(100vh-4rem)] pb-8"
+          style={{ WebkitOverflowScrolling: "touch" }}
+        >
           {navLinks.map((link) => (
             <Link
               key={link.name}
