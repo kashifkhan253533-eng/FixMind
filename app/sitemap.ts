@@ -4,7 +4,7 @@ import { blogPosts } from "@/lib/blog-posts";
 import { devicesData } from "@/lib/devices";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://fixmend.com";
+  const baseUrl = "https://fixmend.netlify.app";
 
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
