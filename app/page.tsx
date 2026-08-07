@@ -428,7 +428,96 @@ export default function Home() {
           </div>
         </div>
       </section>
+{/* ============================================================ */}
+{/* 🆕 500-Word SEO Content Section */}
+{/* ============================================================ */}
+<section className="px-4 py-8 max-w-6xl mx-auto">
+  <div className="space-y-6">
+    <h2 className="text-2xl md:text-3xl font-bold text-white">
+      Why <span className="text-emerald-400">FixMend</span> is the World's Best Free Repair Platform?
+    </h2>
+    
+    <p className="text-slate-300 leading-relaxed">
+      FixMend is the world's largest free repair platform, helping over 50,000 users 
+      in 120+ countries fix their devices. Whether you need to repair a cracked 
+      smartphone screen, replace a laptop battery, or troubleshoot a tablet issue, 
+      our step-by-step guides and 5,000+ video tutorials make it easy. 
+      Our AI-powered diagnostics tool provides instant troubleshooting help, 
+      saving you time and money. Join our community of repair enthusiasts and 
+      start fixing your devices today — it's completely free and helps reduce 
+      electronic waste.
+    </p>
 
+    <h3 className="text-xl font-semibold text-white mt-6">
+      🔧 Comprehensive Repair Guides for Every Device
+    </h3>
+    <p className="text-slate-300 leading-relaxed">
+      FixMend offers over 200 detailed repair guides covering a wide range of devices, 
+      including smartphones, laptops, tablets, gaming consoles, wearables, and accessories. 
+      Each guide is written by experts and includes step-by-step instructions with clear 
+      images and safety tips. Whether you are a beginner or a professional repair technician, 
+      you will find our guides easy to follow and highly reliable. We update our content 
+      regularly to ensure you have access to the latest repair techniques and industry best practices.
+    </p>
+
+    <h3 className="text-xl font-semibold text-white mt-6">
+      📺 5,000+ Video Tutorials for Visual Learners
+    </h3>
+    <p className="text-slate-300 leading-relaxed">
+      For those who prefer visual learning, FixMend provides access to over 5,000 video 
+      tutorials from YouTube experts. These videos cover everything from basic repairs to 
+      advanced troubleshooting, allowing you to watch and learn at your own pace. Each video 
+      is curated and verified to ensure accuracy and quality. With new videos added regularly, 
+      you will always find the latest repair tutorials for your specific device model.
+    </p>
+
+    <h3 className="text-xl font-semibold text-white mt-6">
+      🤖 AI-Powered Diagnostics for Instant Help
+    </h3>
+    <p className="text-slate-300 leading-relaxed">
+      Our AI-powered diagnostics tool is designed to help you troubleshoot issues quickly 
+      and accurately. Simply describe your problem, and our AI assistant will provide instant 
+      troubleshooting steps and potential fixes. This feature saves you hours of research 
+      and helps you identify the root cause of the issue before you start repairing. It is 
+      like having a professional technician by your side, 24/7, completely free of charge.
+    </p>
+
+    <h3 className="text-xl font-semibold text-white mt-6">
+      🌍 Join a Global Community of Repair Enthusiasts
+    </h3>
+    <p className="text-slate-300 leading-relaxed">
+      FixMend is more than just a repair library — it is a community of over 50,000 
+      repair enthusiasts from 120+ countries. Our community members share repair tips, 
+      success stories, and help each other troubleshoot complex issues. By joining FixMend, 
+      you become part of a global movement that promotes sustainability and reduces 
+      electronic waste. Together, we are making the world a greener place, one repaired 
+      device at a time.
+    </p>
+
+    <h3 className="text-xl font-semibold text-white mt-6">
+      💰 100% Free and Accessible to Everyone
+    </h3>
+    <p className="text-slate-300 leading-relaxed">
+      FixMend is completely free to use. We believe that everyone should have access to 
+      quality repair information, regardless of their budget. There are no hidden fees, 
+      no subscription plans, and no paywalls. Our mission is to empower people to fix their 
+      own devices, save money, and reduce their environmental footprint. Whether you are a 
+      student, a professional, or someone who simply wants to learn a new skill, FixMend 
+      is here to support you every step of the way.
+    </p>
+
+    <h3 className="text-xl font-semibold text-white mt-6">
+      🚀 Start Fixing Your Devices Today
+    </h3>
+    <p className="text-slate-300 leading-relaxed">
+      Ready to fix your devices and save the planet? Explore our extensive library of repair 
+      guides, watch video tutorials, or use our AI diagnostics tool to get started. With 
+      FixMend, you have everything you need to become a confident repairer. Join 50,000+ 
+      users worldwide and start your repair journey today — it is fast, easy, and completely 
+      free. Don't wait — your device is waiting to be fixed!
+    </p>
+  </div>
+</section>
       {/* ============================================================ */}
       {/* 4. ریسنٹ ویڈیوز */}
       {/* ============================================================ */}
