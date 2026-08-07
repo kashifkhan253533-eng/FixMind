@@ -1,7 +1,7 @@
 // app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script"; // ✅ Default import (درست)
+import Script from "next/script";
 import "./globals.css";
 
 // ============================================================
@@ -12,7 +12,7 @@ import Footer from "@/components/layout/Footer";
 import { AuthProvider } from "@/context/AuthContext";
 
 // ============================================================
-// ✅ UI کمپوننٹس
+// UI Components
 // ============================================================
 import ChatBot from "@/components/ui/ChatBot";
 import ThemeToggle from "@/components/ui/ThemeToggle";
@@ -32,21 +32,30 @@ const geistMono = Geist_Mono({
 });
 
 // ============================================================
-// ✅ SEO Metadata
+// ✅ SEO Metadata (FIXED)
 // ============================================================
 export const metadata: Metadata = {
   title: "FixMend - Repair Your World. Save the Planet.",
-  description: "Free repair guides, cheap spare parts, and AI-powered diagnostics for your gadgets.",
-  keywords: "repair, fix, electronics, smartphone, laptop, tablet, DIY, guide, tutorial",
+  description: "Free repair guides, step-by-step tutorials, and AI-powered diagnostics for smartphones, laptops, tablets, and more. Join 50,000+ repairers worldwide.",
+  keywords: "repair, fix, electronics, smartphone, laptop, tablet, DIY, guide, tutorial, AI diagnostics, FixMend",
   authors: [{ name: "FixMend Team" }],
+  
+  // ✅ CANONICAL URL ADDED
+  alternates: {
+    canonical: "https://fixmend.netlify.app/",
+    languages: {
+      'en': 'https://fixmend.netlify.app/',
+    },
+  },
+  
   openGraph: {
     title: "FixMend - Repair Your World. Save the Planet.",
-    description: "Free repair guides, cheap spare parts, and AI-powered diagnostics for your gadgets.",
-    url: "https://fixmend.com",
+    description: "Free repair guides, step-by-step tutorials, and AI-powered diagnostics for smartphones, laptops, tablets, and more.",
+    url: "https://fixmend.netlify.app/",
     siteName: "FixMend",
     images: [
       {
-        url: "https://fixmend.com/og-image.png",
+        url: "https://fixmend.netlify.app/og-image.png",
         width: 1200,
         height: 630,
       },
@@ -57,8 +66,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "FixMend - Repair Your World. Save the Planet.",
-    description: "Free repair guides, cheap spare parts, and AI-powered diagnostics for your gadgets.",
-    images: ["https://fixmend.com/og-image.png"],
+    description: "Free repair guides, step-by-step tutorials, and AI-powered diagnostics for smartphones, laptops, tablets, and more.",
+    images: ["https://fixmend.netlify.app/og-image.png"],
   },
   robots: {
     index: true,
@@ -89,7 +98,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-950 text-white min-h-screen flex flex-col`}
       >
-        {/* ✅ Service Worker Registration (PWA) */}
+        {/* Service Worker Registration (PWA) */}
         <Script id="register-sw" strategy="afterInteractive">
           {`
             if ('serviceWorker' in navigator) {
@@ -100,42 +109,42 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* ✅ AuthProvider - پوری ایپ کو wrap کرتا ہے */}
+        {/* AuthProvider - Full App Wrap */}
         <AuthProvider>
-          {/* ✅ Navbar */}
+          {/* Navbar */}
           <Navbar />
 
-          {/* ✅ Theme Toggle */}
+          {/* Theme Toggle */}
           <div className="fixed top-20 right-4 z-40">
             <ThemeToggle />
           </div>
 
-          {/* ✅ Main Content */}
+          {/* Main Content */}
           <main className="flex-1 pt-16">
-            {/* ✅ Breadcrumbs */}
+            {/* Breadcrumbs */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <Breadcrumbs />
             </div>
 
-            {/* ✅ Page Content */}
+            {/* Page Content */}
             {children}
 
-            {/* ✅ Newsletter */}
+            {/* Newsletter */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
               <Newsletter />
             </div>
           </main>
 
-          {/* ✅ Footer */}
+          {/* Footer */}
           <Footer />
 
-          {/* ✅ Back to Top */}
+          {/* Back to Top */}
           <BackToTop />
 
-          {/* ✅ Cookie Banner */}
+          {/* Cookie Banner */}
           <CookieBanner />
 
-          {/* ✅ AI ChatBot */}
+          {/* AI ChatBot */}
           <ChatBot />
         </AuthProvider>
       </body>
