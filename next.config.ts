@@ -2,8 +2,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // ✅ Enable SWC minification for faster builds
-  swcMinify: true,
+  // ❌ swcMinify: true,  // YEH HATAO - ab default hai
 
   // ✅ Optimize package imports
   experimental: {
@@ -15,13 +14,22 @@ const nextConfig: NextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
 
-  // ✅ Image optimization
+  // ✅ Image optimization (updated to remotePatterns)
   images: {
-    domains: ['img.youtube.com', 'i.ytimg.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'img.youtube.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.ytimg.com',
+      },
+    ],
     formats: ['image/avif', 'image/webp'],
   },
 
-  // ✅ Security headers (fallback if _headers doesn't work)
+  // ✅ Security headers
   async headers() {
     return [
       {
@@ -45,4 +53,4 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default nextConfig;
+export default nextConfig
